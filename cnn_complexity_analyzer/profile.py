@@ -186,3 +186,33 @@ class Profiler:
     def profile(self):
         macs, params, num_act, num_dp, per_compute_layer_complexity = profile(self.model, inputs=self.inputs)
         return ProfilerResult(macs, params, num_act, num_dp, per_compute_layer_complexity)
+
+
+def profile_compute_layers(model, inputs, custom_ops=None, verbose=False):
+    profiling_results = profile(model, inputs, custom_ops=custom_ops, verbose=verbose)
+    total_params = profiling_results[1]
+
+    input_details = [p[-1] for p in profiling_results[-1]]
+
+    ret = {}
+    count = 0
+
+    num_ones = 0
+    num_ele = 0
+    for idx, (n, m) in enumerate(model.named_modules()):
+        if idx == 0:
+            continue
+
+        if not is_compute_layer(m):
+            continue
+
+        setattr(input_details[count], 'param_proportion', input_details[count].num_param / total_params)
+        ret[n + '.weight'] = input_details[count]
+
+        num_ones += input_details[count].mask.sum()
+        num_ele += input_details[count].mask.numel()
+
+        count += 1
+
+    model_sparsity = 1 - 1.0 * num_ones.item() / num_ele
+    return ret, model_sparsity
