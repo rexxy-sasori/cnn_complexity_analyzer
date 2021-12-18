@@ -2,8 +2,8 @@ from distutils.version import LooseVersion
 
 from torch import nn
 
-import utils
-from utils import NNComputeModuleProfile, ProfilerResult
+from . import utils
+from .utils import NNComputeModuleProfile, ProfilerResult
 from vision.basic_hooks import *
 
 logger = logging.getLogger(__name__)

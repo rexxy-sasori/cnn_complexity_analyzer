@@ -14,7 +14,7 @@ setup(
     download_url='https://github.com/rexxy-sasori/cnn_complexity_analyzer/archive/refs/tags/v0.5.tar.gz',  # I explain this later on
     keywords=['Complexity', 'Profiler', 'CNN'],  # Keywords that define your package best
     install_requires=[  # I get to this in a second
-        'torch'
+        'torch==1.8.1'
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
