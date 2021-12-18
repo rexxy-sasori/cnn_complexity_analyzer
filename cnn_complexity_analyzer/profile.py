@@ -2,9 +2,8 @@ from distutils.version import LooseVersion
 
 from torch import nn
 
-from . import utils
-from .utils import NNComputeModuleProfile, ProfilerResult
-from .vision.basic_hooks import *
+from .utils import NNComputeModuleProfile, ProfilerResult, is_compute_layer
+from vision_hooks import *
 
 logger = logging.getLogger(__name__)
 
@@ -146,7 +145,7 @@ def profile(model: nn.Module, inputs, custom_ops=None, verbose=True):
             module_name = m._get_name()
             # print(prefix, module_name, '(ops:', m_ops, 'params:', m_params, 'act:', m_num_act, 'dp:', m_num_dp,')')
 
-            if utils.is_compute_layer(m):
+            if is_compute_layer(m):
                 per_compute_layer_complexity.append([
                     module_name,
                     m_ops,
