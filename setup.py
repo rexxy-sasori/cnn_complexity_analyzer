@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
     name='cnn_complexity_analyzer',  # How you named your package folder (MyLib)
     packages=['cnn_complexity_analyzer'],  # Chose the same as "name"
-    version='0.1',  # Start with a small number and increase it with every change you make
+    version='0.3',  # Start with a small number and increase it with every change you make
     license='MIT',  # Chose a license from here: https://help.github.com/articles/licensing-a-repository
     description='Analyzer computational complexities of CONV layer and FC layers in CNNs',
     # Give a short description about your library
