@@ -11,7 +11,7 @@ setup(
     author_email='hgeng4@illinois.edu',  # Type in your E-Mail
     url='https://github.com/rexxy-sasori/cnn_complexity_analyzer',
     # Provide either the link to your github or to your website
-    download_url='https://github.com/rexxy-sasori/cnn_complexity_analyzer/archive/refs/tags/v0.1.tar.gz',  # I explain this later on
+    download_url='https://github.com/rexxy-sasori/cnn_complexity_analyzer/archive/refs/tags/v0.3.tar.gz',  # I explain this later on
     keywords=['Complexity', 'Profiler', 'CNN'],  # Keywords that define your package best
     install_requires=[  # I get to this in a second
         'torch',
