@@ -3,7 +3,7 @@ from distutils.version import LooseVersion
 from torch import nn
 
 from .utils import NNComputeModuleProfile, ProfilerResult, is_compute_layer
-from vision_hooks import *
+from .vision_hooks import *
 
 logger = logging.getLogger(__name__)
 
