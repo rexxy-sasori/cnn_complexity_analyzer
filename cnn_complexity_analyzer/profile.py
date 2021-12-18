@@ -4,7 +4,7 @@ from torch import nn
 
 from . import utils
 from .utils import NNComputeModuleProfile, ProfilerResult
-from vision.basic_hooks import *
+from .vision.basic_hooks import *
 
 logger = logging.getLogger(__name__)
 
